@@ -1,0 +1,29 @@
+{
+  "name": "ophicleide-web",
+  "version": "0.0.0",
+  "description": "Web-based front end for the Ophicleide Word2Vec application",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ophicleide/ophicleide-web.git"
+  },
+  "author": "Red Hat, Inc.",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/ophicleide/ophicleide-web/issues"
+  },
+  "homepage": "https://github.com/ophicleide/ophicleide-web#readme",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-route": "^1.5.8",
+    "bootstrap": "^3.3.7",
+    "datatables": "^1.10.12",
+    "express": "^4.14.0",
+    "jquery": "^3.1.0",
+    "morgan": "^1.7.0",
+    "patternfly": "^3.9.0"
+  }
+}
