@@ -1,5 +1,6 @@
 var app = angular.module("Ophicleide", [
-    'ngRoute'
+    'ngRoute',
+    'Ophicleide.controllers',
 ]);
 
 app.config(["$routeProvider", function($routeProvider) {
