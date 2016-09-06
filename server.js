@@ -9,6 +9,8 @@ app.use(express.static("node_modules/datatables/media"));
 app.use(express.static("node_modules/bootstrap/dist"));
 app.use("/js", express.static("node_modules/angular"));
 app.use("/js", express.static("node_modules/angular-route"));
+app.use("/js", express.static("node_modules/angular-ui-bootstrap/dist"));
+app.use("/js", express.static("node_modules/angular-animate"));
 app.use(express.static("node_modules/patternfly/dist"));
 
 app.get("/", function(request, response) {
