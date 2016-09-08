@@ -1,6 +1,7 @@
 var module = angular.module("Ophicleide.controllers", [
     "ngAnimate",
     "ui.bootstrap",
+    "Ophicleide.factories",
 ]);
 
 module.controller("NavCtrl", ["$scope", "$location", function($scope, $location) {
@@ -9,18 +10,11 @@ module.controller("NavCtrl", ["$scope", "$location", function($scope, $location)
   };
 }]);
 
-module.controller("ModelsCtrl", ["$scope", "$uibModal", function($scope, $uibModal) {
-  $scope.openModal = function() {
-    $uibModal.open({
-      ariaLabelledBy: "modal-title",
-      ariaDescribedBy: "modal-body",
-      templateUrl: "partials/modelmodal.html",
-      controller: "ModelsModalCtrl",
-    });
-  };
+module.controller("ModelsCtrl", ["$scope", "modelActions", function($scope, modelActions) {
+  angular.extend($scope, modelActions);
 }]);
 
-module.controller("ModelsModalCtrl", ["$scope", "$uibModalInstance", function($scope, $uibModalInstance) {
+module.controller("ModelsModalCtrl", ["$scope", "$uibModalInstance", "$log", function($scope, $uibModalInstance, $log) {
   $scope.ok = function() {
     $uibModalInstance.close();
   };
@@ -29,15 +23,8 @@ module.controller("ModelsModalCtrl", ["$scope", "$uibModalInstance", function($s
   };
 }]);
 
-module.controller("QueriesCtrl", ["$scope", "$uibModal", function($scope, $uibModal) {
-  $scope.openModal = function() {
-    $uibModal.open({
-      ariaLabelledBy: "modal-title",
-      ariaDescribedBy: "modal-body",
-      templateUrl: "partials/querymodal.html",
-      controller: "QueriesModalCtrl",
-    });
-  };
+module.controller("QueriesCtrl", ["$scope", "queryActions", function($scope, queryActions) {
+  angular.extend($scope, queryActions);
 }]);
 
 module.controller("QueriesModalCtrl", ["$scope", "$uibModalInstance", function($scope, $uibModalInstance) {
