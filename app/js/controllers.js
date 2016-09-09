@@ -15,7 +15,14 @@ module.controller("ModelsCtrl", ["$scope", "modelActions", function($scope, mode
 }]);
 
 module.controller("ModelsModalCtrl", ["$scope", "$uibModalInstance", "$log", function($scope, $uibModalInstance, $log) {
+  var fields = {
+    name: "",
+    modelUrls: "",
+  };
+  $scope.fields = fields;
   $scope.ok = function() {
+    $log.info($scope.fields.name);
+    $log.info($scope.fields.modelUrls);
     $uibModalInstance.close();
   };
   $scope.cancel = function() {
