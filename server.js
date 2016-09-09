@@ -12,6 +12,7 @@ app.use("/js", express.static("node_modules/angular-route"));
 app.use("/js", express.static("node_modules/angular-ui-bootstrap/dist"));
 app.use("/js", express.static("node_modules/angular-animate"));
 app.use(express.static("node_modules/patternfly/dist"));
+app.use("/js", express.static("node_modules/angular-patternfly/dist"));
 
 app.get("/", function(request, response) {
     response.render("index.html");

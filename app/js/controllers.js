@@ -1,8 +1,19 @@
 var module = angular.module("Ophicleide.controllers", [
     "ngAnimate",
     "ui.bootstrap",
+    "patternfly.notification",
     "Ophicleide.factories",
 ]);
+
+module.controller("BodyCtrl", ["$scope", "$rootScope", function($scope, $rootScope) {
+  $scope.alerts = [];
+  $scope.removeAlert = function(index) {
+    $scope.alerts.splice(index, 1);
+  };
+  $rootScope.addAlert = function(title, msg) {
+    $scope.alerts.push({title: title, msg: msg});
+  };
+}]);
 
 module.controller("NavCtrl", ["$scope", "$location", function($scope, $location) {
   $scope.isActive = function(route) {
@@ -14,15 +25,13 @@ module.controller("ModelsCtrl", ["$scope", "modelActions", function($scope, mode
   angular.extend($scope, modelActions);
 }]);
 
-module.controller("ModelsModalCtrl", ["$scope", "$uibModalInstance", "$log", function($scope, $uibModalInstance, $log) {
+module.controller("ModelsModalCtrl", ["$scope", "$rootScope", "$uibModalInstance", "$log", function($scope, $rootScope, $uibModalInstance, $log) {
   var fields = {
     name: "",
     modelUrls: "",
   };
   $scope.fields = fields;
   $scope.ok = function() {
-    $log.info($scope.fields.name);
-    $log.info($scope.fields.modelUrls);
     $uibModalInstance.close();
   };
   $scope.cancel = function() {
