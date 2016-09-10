@@ -6,13 +6,7 @@ var module = angular.module("Ophicleide.controllers", [
 ]);
 
 module.controller("BodyCtrl", ["$scope", "$rootScope", function($scope, $rootScope) {
-  $scope.alerts = [];
-  $scope.removeAlert = function(index) {
-    $scope.alerts.splice(index, 1);
-  };
-  $rootScope.addAlert = function(title, msg) {
-    $scope.alerts.push({title: title, msg: msg});
-  };
+  $rootScope.alerts = [];
 }]);
 
 module.controller("NavCtrl", ["$scope", "$location", function($scope, $location) {
@@ -25,7 +19,7 @@ module.controller("ModelsCtrl", ["$scope", "modelActions", function($scope, mode
   angular.extend($scope, modelActions);
 }]);
 
-module.controller("ModelsModalCtrl", ["$scope", "$rootScope", "$uibModalInstance", "$log", function($scope, $rootScope, $uibModalInstance, $log) {
+module.controller("ModelsModalCtrl", ["$scope", "$rootScope", "$uibModalInstance", "$log", "alertActions", function($scope, $rootScope, $uibModalInstance, $log, alertActions) {
   var fields = {
     name: "",
     modelUrls: "",

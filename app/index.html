@@ -59,11 +59,11 @@
   </div>
 </nav>
 
-<div ng-repeat="alert in alerts" class="toast-pf toast-pf-max-width toast-pf-top-right alert alert-success alert-dismissable">
+<div ng-repeat="alert in alerts" class="toast-pf toast-pf-max-width toast-pf-top-right alert alert-dismissable" ng-class="alert.severity">
   <button type="button" class="close" data-dismiss="alert" aria-hidden="true" ng-click="removeAlert($index)">
     <span class="pficon pficon-close"></span>
   </button>
-  <span class="pficon pficon-ok"></span>
+  <span class="pficon" ng-class="alert.icon"></span>
   <strong>{{ alert.title }}</strong> {{ alert.msg }}
 </div>
 
