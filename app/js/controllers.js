@@ -72,10 +72,33 @@ module.controller("QueriesCtrl", ["$scope", "queryActions", function($scope, que
 }]);
 
 module.controller("QueriesModalCtrl", ["$scope", "$uibModalInstance", function($scope, $uibModalInstance) {
+  var fields = {
+    word: "",
+    wordEmpty: false,
+  };
+  $scope.fields = fields;
   $scope.ok = function() {
-    $uibModalInstance.close();
+    if ($scope.fields.word === "") {
+      $scope.fields.wordEmpty = true;
+    } else {
+      $uibModalInstance.close();
+    }
   };
   $scope.cancel = function() {
     $uibModalInstance.dismiss();
+  };
+  $scope.classHasError = function(group) {
+    if ($scope.hasError(group)) {
+      return "has-error";
+    }
+  };
+  $scope.hasError = function(group) {
+    var ret = false;
+    switch (group) {
+      case "word":
+        ret = $scope.fields.wordEmpty;
+        break;
+    }
+    return ret;
   };
 }]);
