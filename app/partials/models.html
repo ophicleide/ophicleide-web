@@ -4,8 +4,15 @@
     <div class="col-md-12">
 
       <div class="page-header">
+        <button class="btn btn-primary pull-right" type="button" ng-click="addModel()" ng-if="!emptyItems()">Add Model</button>
         <h1>Trained Models</h1>
       </div>
+
+    </div>
+  </div><!-- row -->
+
+  <div class="row" ng-if="emptyItems()">
+    <div class="col-md-12">
 
       <div class="blank-slate-pf">
         <div class="blank-slate-pf-icon">
@@ -14,13 +21,32 @@
         <h1>No models have been trained yet</h1>
         <p>Learn more about this <a href="#">in the documentation</a>.</p>
         <div class="blank-slate-pf-main-action">
-          <button class="btn btn-primary btn-lg" ng-click="newModel()">
-            Train New Model
+          <button class="btn btn-primary btn-lg" ng-click="addModel()">
+            Train Model
           </button>
         </div>
       </div>
 
     </div>
-  </div>
+  </div><!-- row -->
+
+  <div class="row" ng-if="!emptyItems()">
+    <div class="col-md-12">
+
+      <div class="list-view-container">
+        <div pf-list-view id="modelsListView" config="config" items="items">
+          <div class="list-view-pf-description">
+            <div class="list-group-item-heading">
+              {{ item.name }}
+            </div>
+            <div class="list-group-item-text">
+              {{ item.status }}
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- row -->
 
 </div><!-- container -->

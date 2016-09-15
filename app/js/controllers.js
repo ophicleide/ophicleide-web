@@ -2,6 +2,7 @@ var module = angular.module("Ophicleide.controllers", [
     "ngAnimate",
     "ui.bootstrap",
     "patternfly.notification",
+    "patternfly.views",
     "Ophicleide.factories",
 ]);
 
@@ -15,11 +16,24 @@ module.controller("NavCtrl", ["$scope", "$location", function($scope, $location)
   };
 }]);
 
-module.controller("ModelsCtrl", ["$scope", "modelActions", function($scope, modelActions) {
+module.controller("ModelsCtrl", ["$scope", "modelActions", "$log", function($scope, modelActions, $log) {
   angular.extend($scope, modelActions);
+  $scope.items = [];
+  $scope.emptyItems = function() {
+    if ($scope.items.length == 0 )
+      return true;
+    return false;
+  };
+  $scope.config = {
+    showSelectBox: false,
+    selectionMatchProp: "name",
+  };
+  $scope.addModel = function() {
+    modelActions.newModel();
+  };
 }]);
 
-module.controller("ModelsModalCtrl", ["$scope", "$rootScope", "$uibModalInstance", "$log", "alertActions", function($scope, $rootScope, $uibModalInstance, $log, alertActions) {
+module.controller("ModelsModalCtrl", ["$scope", "$rootScope", "$uibModalInstance", "alertActions", function($scope, $rootScope, $uibModalInstance, alertActions) {
   var fields = {
     name: "",
     urls: "",
