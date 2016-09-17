@@ -1,8 +1,11 @@
 "use strict";
 
-var app = angular.module("Ophicleide", [
+var app = angular.module("ophicleideWeb", [
     "ngRoute",
-    "Ophicleide.controllers",
+    "ngAnimate",
+    "ui.bootstrap",
+    "patternfly.notification",
+    "patternfly.views",
 ]);
 
 app.config(["$routeProvider", function($routeProvider) {
