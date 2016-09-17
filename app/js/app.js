@@ -1,3 +1,5 @@
+"use strict";
+
 var app = angular.module("Ophicleide", [
     "ngRoute",
     "Ophicleide.controllers",

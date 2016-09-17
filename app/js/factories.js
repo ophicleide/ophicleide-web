@@ -1,3 +1,5 @@
+"use strict";
+
 var module = angular.module("Ophicleide.factories", [
     "ui.bootstrap",
 ]);

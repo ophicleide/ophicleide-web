@@ -1,4 +1,6 @@
-var module = angular.module("Ophicleide.controllers", [
+"use strict";
+
+var module = angular.module("Ophicleide", [
     "ngAnimate",
     "ui.bootstrap",
     "patternfly.notification",
