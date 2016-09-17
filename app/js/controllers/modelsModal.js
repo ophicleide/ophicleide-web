@@ -24,7 +24,10 @@ angular.module("ophicleideWeb")
       }
       if ($scope.fields.nameEmpty === false &&
           $scope.fields.urlsEmpty === false) {
-        $uibModalInstance.close();
+        $uibModalInstance.close({
+          name: $scope.fields.name,
+          urls: $scope.fields.urls,
+        });
       }
     };
     $scope.cancel = function() {

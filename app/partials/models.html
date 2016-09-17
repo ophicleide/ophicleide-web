@@ -5,6 +5,11 @@
 
       <div class="page-header">
         <button class="btn btn-primary pull-right" type="button" ng-click="addModel()" ng-if="!emptyItems()">Add Model</button>
+        <create-model-button
+          title="Add Model"
+          class="btn btn-primary pull-right"
+          ng-if="!emptyItems()">
+        </create-model-button>
         <h1>Trained Models</h1>
       </div>
 
@@ -21,9 +26,11 @@
         <h1>No models have been trained yet</h1>
         <p>Learn more about this <a href="#">in the documentation</a>.</p>
         <div class="blank-slate-pf-main-action">
-          <button class="btn btn-primary btn-lg" ng-click="addModel()">
-            Train Model
-          </button>
+          <create-model-button
+            title="Train Model"
+            class="btn btn-primary btn-lg"
+            ng-if="emptyItems()">
+          </create-model-button>
         </div>
       </div>
 
