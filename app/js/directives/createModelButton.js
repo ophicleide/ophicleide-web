@@ -18,6 +18,9 @@ angular.module("ophicleideWeb")
             templateUrl: "views/modals/create-model.html",
             controller: "ModelsModalCtrl",
           });
+          modalInstance.rendered.then(function() {
+            angular.element("input#modelName").focus();
+          });
           modalInstance.result.then(function(result) {
             $log.info(result);
           });
