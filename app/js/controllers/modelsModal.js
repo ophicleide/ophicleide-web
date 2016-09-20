@@ -1,7 +1,21 @@
 "use strict";
 
 angular.module("ophicleideWeb")
-  .controller("ModelsModalCtrl", ["$scope", "$rootScope", "$uibModalInstance", "alertActions", function($scope, $rootScope, $uibModalInstance, alertActions) {
+  .controller("ModelsModalCtrl", [
+      "$scope",
+      "$rootScope",
+      "$uibModalInstance",
+      "$log",
+      "alertActions",
+      "modelActions",
+      function(
+        $scope,
+        $rootScope,
+        $uibModalInstance,
+        $log,
+        alertActions,
+        modelActions) {
+
     var fields = {
       name: "",
       urls: "",
@@ -9,6 +23,7 @@ angular.module("ophicleideWeb")
       urlsEmpty: false,
     };
     $scope.fields = fields;
+
     $scope.ok = function() {
       if ($scope.fields.name === "") {
         $scope.fields.nameEmpty = true;
@@ -24,20 +39,31 @@ angular.module("ophicleideWeb")
       }
       if ($scope.fields.nameEmpty === false &&
           $scope.fields.urlsEmpty === false) {
-        $uibModalInstance.close({
+        modelActions.createModel({
           name: $scope.fields.name,
-          urls: $scope.fields.urls,
+          urls: $scope.fields.urls.split("\n"),
+        }).then(function(result) {
+          $log.info(result);
+          $uibModalInstance.close();
+          $rootScope.refresh();
+        }, function(error) {
+          $uibModalInstance.close();
+          alertActions.addDangerAlert("Server Error", error.data);
+          $log.info(error);
         });
       }
     };
+
     $scope.cancel = function() {
       $uibModalInstance.dismiss();
     };
+
     $scope.classHasError = function(group) {
       if ($scope.hasError(group)) {
         return "has-error";
       }
     };
+
     $scope.hasError = function(group) {
       var ret = false;
       switch (group) {

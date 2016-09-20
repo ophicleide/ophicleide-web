@@ -11,7 +11,7 @@ var app = angular.module("ophicleideWeb", [
 app.config(["$routeProvider", function($routeProvider) {
   $routeProvider.
     when("/models", {
-      templateUrl: "partials/models.html"
+      templateUrl: "views/models.html"
     }).
     when("/queries", {
       templateUrl: "partials/queries.html"
