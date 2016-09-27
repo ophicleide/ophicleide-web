@@ -57,7 +57,7 @@ angular.module("ophicleideWeb")
     };
 
     function createQuery(action, item) {
-      $log.info(`create query for ${item.name}`);
+      $log.info(`create query for ${item.id}`);
     };
 
     $scope.actionButtons = [

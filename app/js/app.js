@@ -14,7 +14,7 @@ app.config(["$routeProvider", function($routeProvider) {
       templateUrl: "views/models.html"
     }).
     when("/queries", {
-      templateUrl: "partials/queries.html"
+      templateUrl: "views/queries.html"
     }).
     otherwise("/models");
 }]);

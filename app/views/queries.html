@@ -1,0 +1,62 @@
+<div class="container-fluid" ng-controller="QueriesCtrl">
+
+  <div class="row">
+    <div class="col-md-12">
+
+      <div class="page-header">
+        <create-query-button
+          title="Create Query"
+          class="btn btn-primary pull-right"
+          ng-if="!emptyItems()">
+        </create-query-button>
+        <h1>Word Queries</h1>
+      </div>
+
+    </div>
+  </div><!-- row -->
+
+  <div class="row" ng-if="emptyItems()">
+    <div class="col-md-12">
+
+      <div class="blank-slate-pf">
+        <div class="blank-slate-pf-icon">
+          <i class="pf pficon-cluster"></i>
+        </div>
+        <h1>No queries have been run yet</h1>
+        <p>Learn more about this <a href="#">in the documentation</a>.</p>
+        <div class="blank-slate-pf-main-action">
+          <create-query-button
+            title="Create Query"
+            class="btn btn-primary btn-lg">
+          </create-query-button>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- row -->
+
+  <div class="row" ng-if="!emptyItems()">
+    <div class="col-md-12">
+
+      <div class="list-view-container">
+        <div pf-list-view id="queriesListView"
+          config="config"
+          items="items"
+          action-buttons="actionButtons">
+          <div class="list-view-pf-left">
+            <span class="fa fa-file-text"></span>
+          </div>
+          <div class="list-view-pf-description">
+            <div class="list-group-item-heading">
+              {{ item.name }}
+            </div>
+            <div class="list-group-item-text">
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- row -->
+
+</div><!-- container -->
