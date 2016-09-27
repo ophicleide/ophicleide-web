@@ -1,7 +1,10 @@
 "use strict";
 
 angular.module("ophicleideWeb")
-  .factory("alertActions", ["$rootScope", function($rootScope) {
+  .factory("alertActions", [
+      "$rootScope",
+      function(
+        $rootScope) {
     var removeAlert = function(index) {
       $rootScope.alerts.splice(index, 1);
     };
