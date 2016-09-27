@@ -10,6 +10,14 @@
         <span class="help-block" ng-if="hasError('word')">This field must not be empty</span>
       </div>
     </div>
+    <div class="form-group">
+      <label class="col-sm-2 control-label" for="queryModel">Model</label>
+      <div class="col-sm-10">
+        <select name="queryModel" id="queryModel" ng-model="selectedModel">
+          <option ng-repeat="model in models" value="{{ model.id }}">{{ model.name }}</option>
+        </select>
+      </div>
+    </div>
   </form>
 </div>
 <div class="modal-footer">

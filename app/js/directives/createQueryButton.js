@@ -29,6 +29,9 @@ angular.module("ophicleideWeb")
                   ariaDescribedBy: "modal-body",
                   templateUrl: "views/modals/create-query.html",
                   controller: "QueriesModalCtrl",
+                  resolve: {
+                    models: function() { return models; },
+                  },
                 });
                 modalInstance.rendered.then(function() {
                   angular.element("input#queryName").focus();

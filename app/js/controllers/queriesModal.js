@@ -1,11 +1,20 @@
 "use strict";
 
 angular.module("ophicleideWeb")
-  .controller("QueriesModalCtrl", ["$scope", "$uibModalInstance", function($scope, $uibModalInstance) {
+  .controller("QueriesModalCtrl", [
+      "$scope",
+      "$uibModalInstance",
+      "models",
+      function(
+        $scope,
+        $uibModalInstance,
+        models) {
     var fields = {
       word: "",
       wordEmpty: false,
     };
+    $scope.selectedModel = models[0].id;
+    $scope.models = models;
     $scope.fields = fields;
     $scope.ok = function() {
       if ($scope.fields.word === "") {
