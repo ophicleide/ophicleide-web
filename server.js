@@ -43,6 +43,16 @@ app.delete("/api/models/:id", function(req, res) {
   request.delete(url).pipe(res);
 });
 
+app.get("/api/queries", function(req, res) {
+  var url = `http://${ophicleide_training_addr}:${ophicleide_training_port}/queries`;
+  request.get(url).pipe(res);
+});
+
+app.post("/api/queries", function(req, res) {
+  var url = `http://${ophicleide_training_addr}:${ophicleide_training_port}/queries`;
+  request.post(url, {body: req.body, json: true}).pipe(res);
+});
+
 app.listen(8080, function() {
   console.log("ophicleide-web listening on :8080");
 });

@@ -1,16 +1,25 @@
 "use strict";
 
 angular.module("ophicleideWeb")
-  .factory("queryActions", ["$uibModal", function($uibModal) {
-    function newQuery() {
-      return $uibModal.open({
-        ariaLabelledBy: "modal-title",
-        ariaDescribedBy: "modal-body",
-        templateUrl: "partials/querymodal.html",
-        controller: "QueriesModalCtrl",
-      }).result;
+  .factory("queryActions", [
+      "$log",
+      "$http",
+      function(
+        $log,
+        $http) {
+    
+    function getQueries() {
+      return $http.get("/api/queries");
     };
+
+    function createQuery(data) {
+      data = JSON.stringify(data);
+      $log.info("creating query: " + data);
+      return $http.post("/api/queries", data);
+    };
+
     return {
-      newQuery: newQuery,
+      getQueries: getQueries,
+      createQuery: createQuery,
     };
   }]);

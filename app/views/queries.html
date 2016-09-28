@@ -48,9 +48,10 @@
           </div>
           <div class="list-view-pf-description">
             <div class="list-group-item-heading">
-              {{ item.name }}
+              {{ item.word }}
             </div>
             <div class="list-group-item-text">
+              <div ng-repeat="result in item.results">{{ result[1] }}: {{ result[0] }}<br></div>
             </div>
           </div>
         </div>

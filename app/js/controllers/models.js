@@ -50,7 +50,6 @@ angular.module("ophicleideWeb")
 
     $rootScope.refresh = reloadData;
 
-    /*
     var refresh_seconds = 10;
     var intervalPromise = $interval(function() {
       reloadData();
@@ -61,7 +60,6 @@ angular.module("ophicleideWeb")
         $interval.cancel(intervalPromise);
       }
     });
-    */
 
     /* make sure to call reload data initially to avoid a 10 second wait */
     reloadData();

@@ -39,7 +39,7 @@ angular.module("ophicleideWeb")
                   },
                 });
                 modalInstance.rendered.then(function() {
-                  angular.element("input#queryName").focus();
+                  angular.element("input#queryWord").focus();
                 });
                 modalInstance.result.then(function(result) {
                   $log.info(result);
