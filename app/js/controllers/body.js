@@ -10,5 +10,6 @@ angular.module("ophicleideWeb")
         $rootScope,
         alertActions) {
     $rootScope.alerts = [];
+    $rootScope.bodyClass = "";
     $scope.removeAlert = alertActions.removeAlert;
   }]);

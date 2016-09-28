@@ -15,6 +15,27 @@
     </div>
   </div><!-- row -->
 
+  <div class="row row-cards-pf" ng-if="!emptyItems()">
+    <div class="col-md-12">
+
+      <div ng-repeat="item in items" class="col-xs-12 col-sm-4 col-md-3 col-lg-2">
+        <div class="card-pf card-pf-view card-pf-view-select">
+          <div class="card-pf-body" style="height: 263px;">
+            <div class="card-pf-top-element">
+              <span class="fa fa-file-text card-pf-icon-circle"></span>
+            </div>
+            <h2 class="card-pf-title text-center">{{ item.word }}</h2>
+            <p class="card-pf-info text-center">
+            <strong>Results</strong><br>
+            <span ng-repeat="result in item.results">{{ result[1] }} ({{ result[0] | number:4 }})<br></span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- row -->
+
   <div class="row" ng-if="emptyItems()">
     <div class="col-md-12">
 
@@ -29,31 +50,6 @@
             title="Create Query"
             class="btn btn-primary btn-lg">
           </create-query-button>
-        </div>
-      </div>
-
-    </div>
-  </div><!-- row -->
-
-  <div class="row" ng-if="!emptyItems()">
-    <div class="col-md-12">
-
-      <div class="list-view-container">
-        <div pf-list-view id="queriesListView"
-          config="config"
-          items="items"
-          action-buttons="actionButtons">
-          <div class="list-view-pf-left">
-            <span class="fa fa-file-text"></span>
-          </div>
-          <div class="list-view-pf-description">
-            <div class="list-group-item-heading">
-              {{ item.word }}
-            </div>
-            <div class="list-group-item-text">
-              <div ng-repeat="result in item.results">{{ result[1] }}: {{ result[0] }}<br></div>
-            </div>
-          </div>
         </div>
       </div>
 

@@ -14,6 +14,8 @@ angular.module("ophicleideWeb")
 
     angular.extend($scope, queryActions);
 
+    $rootScope.bodyClass = "cards-pf";
+
     $scope.items = [];
 
     $scope.emptyItems = function() {
@@ -44,19 +46,5 @@ angular.module("ophicleideWeb")
 
     $rootScope.refresh = reloadData;
 
-    /*
-    var refresh_seconds = 10;
-    var intervalPromise = $interval(function() {
-      reloadData();
-    }, refresh_seconds * 1000);
-
-    $scope.$on("$destroy", function() {
-      if (intervalPromise) {
-        $interval.cancel(intervalPromise);
-      }
-    });
-    */
-
-    /* make sure to call reload data initially to avoid a 10 second wait */
     reloadData();
   }]);

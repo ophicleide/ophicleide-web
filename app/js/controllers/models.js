@@ -16,6 +16,8 @@ angular.module("ophicleideWeb")
         modelActions,
         queryActions) {
 
+    $rootScope.bodyClass = "";
+
     $scope.items = [];
 
     $scope.emptyItems = function() {
