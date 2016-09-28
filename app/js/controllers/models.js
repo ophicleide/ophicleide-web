@@ -31,7 +31,6 @@ angular.module("ophicleideWeb")
     $scope.config = {
       showSelectBox: false,
       selectionMatchProp: "name",
-      onClick: getModelDetail,
     };
 
     function updateItems(itemList) {
@@ -50,28 +49,6 @@ angular.module("ophicleideWeb")
     };
 
     $rootScope.refresh = reloadData;
-
-    $scope.deleteModel = function(action, item) {
-      modelActions.deleteModel(item.id);
-      reloadData();
-    };
-
-    function createQuery(action, item) {
-      $log.info(`create query for ${item.id}`);
-    };
-
-    $scope.actionButtons = [
-      {
-        name: "Create Query",
-        title: "Create a new query based on this model",
-        actionFn: createQuery,
-      },
-      {
-        name: "Delete",
-        title: "Delete this training model",
-        actionFn: $scope.deleteModel,
-      },
-    ];
 
     /*
     var refresh_seconds = 10;

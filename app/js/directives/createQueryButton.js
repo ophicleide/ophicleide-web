@@ -16,13 +16,18 @@ angular.module("ophicleideWeb")
       scope: {
         title: "@",
         class: "@",
+        model: "@",
       },
       templateUrl: "views/directives/create-query-button.html",
       replace: true,
       link: function(scope) {
         scope.openCreateQueryModal = function() {
           modelActions.getModels().then(function(response) {
-            var models = response.data.models;
+            if (scope.model != undefined) {
+              var models = [JSON.parse(scope.model)];
+            } else {
+              var models = response.data.models;
+            }
             if (models.length > 0) {
                 var modalInstance = $uibModal.open({
                   ariaLabelledBy: "modal-title",

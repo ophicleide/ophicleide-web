@@ -27,8 +27,7 @@
         <div class="blank-slate-pf-main-action">
           <create-model-button
             title="Train Model"
-            class="btn btn-primary btn-lg"
-            ng-if="emptyItems()">
+            class="btn btn-primary btn-lg">
           </create-model-button>
         </div>
       </div>
@@ -42,8 +41,19 @@
       <div class="list-view-container">
         <div pf-list-view id="modelsListView"
           config="config"
-          items="items"
-          action-buttons="actionButtons">
+          items="items">
+          <div class="list-view-pf-actions">
+            <create-query-button
+              title="Create Query"
+              model="{{ item }}"
+              class="btn btn-primary">
+            </create-query-button>
+            <delete-model-button
+              title="Delete"
+              model="{{ item }}"
+              class="btn btn-default">
+            </delete-model-button>
+          </div>
           <div class="list-view-pf-left">
             <span class="pficon pficon-service"></span>
           </div>
