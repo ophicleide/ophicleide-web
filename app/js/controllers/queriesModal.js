@@ -6,6 +6,7 @@ angular.module("ophicleideWeb")
       "$rootScope",
       "$uibModalInstance",
       "$log",
+      "$window",
       "alertActions",
       "queryActions",
       "models",
@@ -14,6 +15,7 @@ angular.module("ophicleideWeb")
         $rootScope,
         $uibModalInstance,
         $log,
+        $window,
         alertActions,
         queryActions,
         models) {
@@ -37,6 +39,7 @@ angular.module("ophicleideWeb")
         }).then(function(result) {
           $log.info(result);
           $uibModalInstance.close();
+          $window.location.href = "/#/queries";
           $rootScope.refresh();
         }, function(error) {
           $uibModalInstance.close();
