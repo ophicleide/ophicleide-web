@@ -39,34 +39,45 @@
     <div class="col-md-12">
 
       <div class="list-view-container">
-        <div pf-list-view id="modelsListView"
-          config="config"
-          items="items">
-          <div class="list-view-pf-actions">
-            <create-query-button
-              title="Create Query"
-              model="{{ item }}"
-              class="btn btn-primary">
-            </create-query-button>
-            <delete-model-button
-              title="Delete"
-              model="{{ item }}"
-              class="btn btn-default">
-            </delete-model-button>
-          </div>
-          <div class="list-view-pf-left">
-            <span class="pficon pficon-service"></span>
-          </div>
-          <div class="list-view-pf-description">
-            <div class="list-group-item-heading">
-              {{ item.name }}
+        <div class="list-group list-view-pf list-view-pf-view">
+          <div ng-repeat="item in items" class="list-group-item">
+            <div class="list-view-pf-actions">
+              <create-query-button
+                title="Create Query"
+                model="{{ item }}"
+                class="btn btn-primary">
+              </create-query-button>
+              <delete-model-button
+                title="Delete"
+                model="{{ item }}"
+                class="btn btn-default">
+              </delete-model-button>
             </div>
-            <div class="list-group-item-text">
-              Status: {{ item.status }}
+            <div class="list-view-pf-main-info">
+              <div class="list-view-pf-left">
+                <span class="pficon pficon-service"></span>
+              </div>
+              <div class="list-view-pf-body">
+                <div class="list-view-pf-description">
+                  <div class="list-group-item-heading">
+                    {{ item.name }}
+                  </div>
+                  <div class="list-group-item-text">
+                    Status: {{ item.status }}
+                  </div>
+                </div>
+                <div class="list-view-pf-additional-info">
+                  <div ng-repeat="url in item.urls" class="list-view-pf-additional-info-item">
+                    <a href="{{ url }}" title="{{ url }}" target="blank">
+                      URL {{ $index+1 }}
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </div><!-- list view container -->
 
     </div>
   </div><!-- row -->
