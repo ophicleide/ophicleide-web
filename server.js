@@ -18,9 +18,10 @@ app.use(express.static("node_modules/patternfly/dist"));
 app.use("/js", express.static("node_modules/angular-patternfly/dist"));
 app.use(bodyParser.json());
 
-var ophicleide_training_addr = process.env.OPHICLEIDE_TRAINING_ADDR || '127.0.0.1'; 
-var ophicleide_training_port = process.env.OPHICLEIDE_TRAINING_PORT || '8080'; 
+var ophicleide_training_addr = process.env.OPHICLEIDE_TRAINING_ADDR || '127.0.0.1';
+var ophicleide_training_port = process.env.OPHICLEIDE_TRAINING_PORT || '8080';
 var ophicleide_debug = process.env.OPHICLEIDE_DEBUG || false;
+var ophicleide_web_port = process.env.OPHICLEIDE_WEB_PORT || 8080;
 
 app.get("/", function(req, res) {
     res.render("index.html");
@@ -53,6 +54,6 @@ app.post("/api/queries", function(req, res) {
   request.post(url, {body: req.body, json: true}).pipe(res);
 });
 
-app.listen(8080, function() {
-  console.log("ophicleide-web listening on :8080");
+app.listen(ophicleide_web_port, function() {
+  console.log(`ophicleide-web listening on ${ophicleide_web_port}`);
 });
