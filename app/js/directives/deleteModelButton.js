@@ -2,15 +2,11 @@
 
 angular.module("ophicleideWeb")
   .directive("deleteModelButton", [
-      "$rootScope",
       "$uibModal",
       "$log",
-      "modelActions",
       function(
-        $rootScope,
         $uibModal,
-        $log,
-        modelActions) {
+        $log) {
     return {
       restrict: "E",
       scope: {
@@ -21,10 +17,17 @@ angular.module("ophicleideWeb")
       templateUrl: "views/directives/delete-model-button.html",
       replace: true,
       link: function(scope) {
-        scope.deleteModel = function() {
-          var model = JSON.parse(scope.model);
-          modelActions.deleteModel(model.id);
-          $rootScope.refresh();
+        var model = JSON.parse(scope.model);
+        scope.openConfirmDeleteModelModal = function() {
+          var modalInstance = $uibModal.open({
+            ariaLabelledBy: "modal-title",
+            ariaDescribedBy: "modal-body",
+            templateUrl: "views/modals/delete-model.html",
+            controller: "ModelsDeleteModalCtrl",
+            resolve: {
+              model: function () { return model; },
+            },
+          });
         };
       }
     };

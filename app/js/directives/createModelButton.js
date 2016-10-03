@@ -1,7 +1,12 @@
 "use strict";
 
 angular.module("ophicleideWeb")
-  .directive("createModelButton", function($uibModal, $log) {
+  .directive("createModelButton", [
+      "$uibModal",
+      "$log",
+      function(
+        $uibModal,
+        $log) {
     return {
       restrict: "E",
       scope: {
@@ -27,4 +32,4 @@ angular.module("ophicleideWeb")
         };
       }
     };
-  });
+  }]);
