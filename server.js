@@ -14,6 +14,7 @@ app.use("/js", express.static("node_modules/angular"));
 app.use("/js", express.static("node_modules/angular-route"));
 app.use("/js", express.static("node_modules/angular-ui-bootstrap/dist"));
 app.use("/js", express.static("node_modules/angular-animate"));
+app.use("/js", express.static("node_modules/angular-sanitize"));
 app.use(express.static("node_modules/patternfly/dist"));
 app.use("/js", express.static("node_modules/angular-patternfly/dist"));
 app.use(bodyParser.json());
