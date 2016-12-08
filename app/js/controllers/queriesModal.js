@@ -39,7 +39,7 @@ angular.module("ophicleideWeb")
         }).then(function(result) {
           $log.info(result);
           $uibModalInstance.close();
-          $window.location.href = "/#/queries";
+          $window.location.href = "/#!/queries";
           $rootScope.refresh();
         }, function(error) {
           $uibModalInstance.close();
