@@ -1,6 +1,7 @@
 # Logs
 logs
 *.log
+.ctrlp
 
 # Runtime data
 pids
