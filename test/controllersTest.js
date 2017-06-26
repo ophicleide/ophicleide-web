@@ -13,6 +13,7 @@ describe('Testing controllers', function() {
     var queriesPath = "/api/queries";
     var $scope;
     var modelActions;
+    var queryActions;
     var $rootScope;
 
     beforeEach(module('ophicleideWeb'));
@@ -79,9 +80,9 @@ describe('Testing controllers', function() {
         });
 
         it('Testing if model is created with given arguments', function() {
-            chai.expect($scope.fields.nameEmpty).to.false;
-            chai.expect($scope.fields.urlsEmpty).to.false;
-            chai.expect(modelActions.createModel.calledOnce).to.true;
+            chai.expect($scope.fields.nameEmpty).to.equal(false);
+            chai.expect($scope.fields.urlsEmpty).to.equal(false);
+            chai.expect(modelActions.createModel.calledOnce).to.equal(true);
             chai.expect(modelActions.createModel.getCall(0).args[0]).to.eql(expectedModelData);
         });
     });
@@ -126,7 +127,7 @@ describe('Testing controllers', function() {
             chai.expect($scope.items.length).to.equal(1);
             chai.expect($scope.items[0]).to.eql(dummyQueryData.queries[0]);
         });
-    })
+    });
 
     describe('Testing query creation', function() {
 
@@ -151,8 +152,8 @@ describe('Testing controllers', function() {
         });
 
         it('Testing if model is created with given arguments', function() {
-            chai.expect($scope.fields.wordEmpty).to.false;
-            chai.expect(queryActions.createQuery.calledOnce).to.true;
+            chai.expect($scope.fields.wordEmpty).to.equal(false);
+            chai.expect(queryActions.createQuery.calledOnce).to.equal(true);
             chai.expect(queryActions.createQuery.getCall(0).args[0]).to.eql(expectedQueryData);
         });
     });
