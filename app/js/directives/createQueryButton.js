@@ -23,10 +23,11 @@ angular.module("ophicleideWeb")
       link: function(scope) {
         scope.openCreateQueryModal = function() {
           modelActions.getModels().then(function(response) {
+            var models;
             if (scope.model != undefined) {
-              var models = [JSON.parse(scope.model)];
+              models = [JSON.parse(scope.model)];
             } else {
-              var models = response.data.models;
+              models = response.data.models;
             }
             if (models.length > 0) {
                 var modalInstance = $uibModal.open({

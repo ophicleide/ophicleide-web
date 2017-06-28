@@ -31,7 +31,7 @@ angular.module("ophicleideWeb")
 
     function updateItems(itemList) {
       $scope.items = itemList;
-    };
+    }
     
     function reloadData() {
       $log.info("reloading query data");
@@ -42,7 +42,7 @@ angular.module("ophicleideWeb")
       }, function(error) {
         $log.error("Error retrieving model data from the server");
       });
-    };
+    }
 
     $rootScope.refresh = reloadData;
 

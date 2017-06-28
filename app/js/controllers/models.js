@@ -28,7 +28,7 @@ angular.module("ophicleideWeb")
 
     function getModelDetail (item, event) {
       $log.info(`get item ${item.id} detail`);
-    };
+    }
 
     $scope.config = {
       showSelectBox: false,
@@ -37,7 +37,7 @@ angular.module("ophicleideWeb")
 
     function updateItems(itemList) {
       $scope.items = itemList;
-    };
+    }
 
     function reloadData() {
       $log.info("reloading data");
@@ -48,7 +48,7 @@ angular.module("ophicleideWeb")
       }, function(error) {
         $log.error("Error retrieving model data from the server");
       });
-    };
+    }
 
     $rootScope.refresh = reloadData;
 
